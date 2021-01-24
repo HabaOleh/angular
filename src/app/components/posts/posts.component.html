@@ -1,0 +1,4 @@
+<h3>{{choosenPost?.title}}</h3>
+<h5>{{choosenPost?.body}}</h5>
+<hr>
+<app-post *ngFor="let post of posts" [post]="post" (upPost)="getUpPost($event)"></app-post>
