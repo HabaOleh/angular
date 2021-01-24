@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {cars} from 'src/database/data';
-import {ICar} from '../../interfaces';
+import {ICar} from '../../../interfaces';
 
 @Component({
   selector: 'app-cars',

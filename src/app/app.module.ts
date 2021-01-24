@@ -2,17 +2,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CarsComponent } from './cars/cars.component';
-import { CarComponent } from './car/car.component';
+import { CarsComponent } from './components/cars/cars.component';
+import { CarComponent } from './components/car/car.component';
+import {RouterModule} from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { FullCarComponent } from './components/full-car/full-car.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarsComponent,
-    CarComponent
+    CarComponent,
+    HomeComponent,
+    FullCarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {
+        path: 'link/home', component: HomeComponent
+      },
+      {
+        path: 'link/cars', component: CarsComponent, children: [{
+         path: ':id' , component: FullCarComponent
+        }]
+      }
+
+      ])
   ],
   providers: [],
   bootstrap: [AppComponent]
